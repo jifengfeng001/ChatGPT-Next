@@ -38,7 +38,7 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/.next/server ./.next/server
 
-EXPOSE 3001
+EXPOSE 3000
 
 CMD if [ -n "$PROXY_URL" ]; then \
         protocol=$(echo $PROXY_URL | cut -d: -f1); \
