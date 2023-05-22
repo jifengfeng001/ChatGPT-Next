@@ -843,6 +843,12 @@ export function Chat() {
                         >
                           {Locale.Chat.Actions.Copy}
                         </div>
+                        <div
+                          className={styles["chat-message-top-action"]}
+                          onClick={() => copyToClipboard(message.content)}
+                        >
+                          {Locale.Chat.Actions.Edit}
+                        </div>
                       </div>
                     )}
                     <Markdown
