@@ -12,10 +12,8 @@
     "prepare": "husky install",
     "proxy-dev": "sh ./scripts/init-proxy.sh && proxychains -f ./scripts/proxychains.conf yarn dev"
   },
-
   "dependencies": {
     "@ant-design/cssinjs": "^1.9.1",
-    "@ant-design/icons": "^5.1.4",
     "@fortaine/fetch-event-source": "^3.0.6",
     "@hello-pangea/dnd": "^16.2.0",
     "@svgr/webpack": "^6.5.1",
