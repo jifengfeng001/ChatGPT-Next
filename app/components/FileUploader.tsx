@@ -25,11 +25,11 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onUpload }) => {
 
   return (
     <div>
-      <label class="label">
+      <label className="label">
         选择文件：
         <input
           type="file"
-          class="input"
+          className="input"
           multiple
           onChange={handleFileInputChange}
         />
@@ -37,7 +37,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onUpload }) => {
 
       <label> {selectedFiles?.item(0)?.name}</label>
 
-      <button class="button" onClick={handleUploadButtonClick}>
+      <button className="button" onClick={handleUploadButtonClick}>
         上传
       </button>
     </div>
