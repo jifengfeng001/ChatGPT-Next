@@ -1,0 +1,61 @@
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 1px;
+  margin-inline-end: 1px;
+  padding-inline-start: 5px;
+}
+li {
+  display: flex;
+
+  margin-bottom: 10px;
+}
+
+li a {
+  text-decoration: none;
+  color: #333;
+  margin-left: 5px;
+}
+
+li a:before {
+  content: none;
+}
+
+li input[type="checkbox"] {
+}
+
+li button {
+  margin-left: auto;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+li button:hover {
+  background-color: #d32f2f;
+}
+
+input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button {
+  margin-left: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+}

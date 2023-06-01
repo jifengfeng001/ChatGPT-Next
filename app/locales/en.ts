@@ -21,7 +21,7 @@ const en: RequiredLocaleType = {
       Retry: "Retry",
       Delete: "Delete",
       Edit: "Edit",
-      Submit: "Submit1",
+      Submit: "Submit",
     },
     Rename: "Rename Chat",
     Typing: "Typing…",

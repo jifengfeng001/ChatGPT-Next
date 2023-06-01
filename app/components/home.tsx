@@ -1,5 +1,7 @@
 "use client";
 
+import { ListItem } from "@/app/components/ui-lib";
+
 require("../polyfill");
 
 import { useState, useEffect } from "react";
@@ -22,7 +24,9 @@ import {
   useLocation,
 } from "react-router-dom";
 import { SideBar } from "./sidebar";
-import { useAppConfig } from "../store/config";
+import { ModelConfig, useAppConfig } from "../store/config";
+import Locale from "@/app/locales";
+import { useChatStore } from "@/app/store";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (

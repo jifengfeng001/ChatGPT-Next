@@ -1,0 +1,340 @@
+{
+  "通用模型": [
+    {
+      "modelType": "通用模型",
+      "modelName": "GPT3.5",
+      "modelDesc": "基于深度学习的自然语言处理模型，具有强大的生成和理解能力。",
+      "modelPrice": "有免费和付费版本，具体收费标准不详。提供API接口。",
+      "modelUrl": "https://gpt3.co/"
+    },
+    {
+      "modelType": "通用模型",
+      "modelName": "GPT4.0",
+      "modelDesc": "基于深度学习的自然语言处理模型，相比GPT3.5在语言理解和生成方面进一步提升。",
+      "modelPrice": "有免费和付费版本，具体收费标准不详。提供API接口。",
+      "modelUrl": "https://gpt4.co/"
+    },
+    {
+      "modelType": "通用模型",
+      "modelName": "星火大模型",
+      "modelDesc": "由百度推出的超大规模中文预训练模型，具有超过1750亿个参数。",
+      "modelPrice": "有免费和付费版本，具体收费标准不详。提供API接口。",
+      "modelUrl": "https://www.starfire.ai/"
+    },
+    {
+      "modelType": "通用模型",
+      "modelName": "Claude",
+      "modelDesc": "由谷歌推出的机器阅读理解模型，可以对长篇文本进行自动阅读和理解。",
+      "modelPrice": "有免费和付费版本，具体收费标准不详。提供API接口。",
+      "modelUrl": "https://www.cluebenchmarks.com/datasets/google-reading-comprehension-dataset"
+    },
+    {
+      "modelType": "通用模型",
+      "modelName": "Bard",
+      "modelDesc": "由微软推出的大型预训练语言模型，具有超过1000亿个参数。",
+      "modelPrice": "有免费和付费版本，具体收费标准不详。提供API接口。",
+      "modelUrl": "https://microsoft.github.io/bart-model/"
+    }
+  ],
+  "文生图": [
+    {
+      "modelType": "文生图",
+      "modelName": "PlaygroundAI",
+      "modelDesc": "根据文本生成艺术照演示文稿，海报，logo",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "文生图",
+      "modelName": "getimg.AI",
+      "modelDesc": "提供基于人工智能的图像生成服务，可以用于各种场景，如商业、娱乐等。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "文生图",
+      "modelName": "midjourney",
+      "modelDesc": "目前最强大的文生图工具",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "文生图",
+      "modelName": "crypko.ai",
+      "modelDesc": "文生动漫",
+      "modelPrice": "",
+      "modelUrl": ""
+    }
+  ],
+  "AI写作": [
+    {
+      "modelType": "AI写作",
+      "modelName": "NovelAI",
+      "modelDesc": "可以根据用户的需求写诗歌、故事、小说",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "AI写作",
+      "modelName": "Adobe Firefly",
+      "modelDesc": "根据用户的提示生成艺术字",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "AI写作",
+      "modelName": "Writesonic",
+      "modelDesc": "可以让你输入一些信息，然后生成无限量的内容，节省你的时间和精力。拥有65种功能，比如文章写作、Facebook广告、落地页、知识回答、Twitter推文和Instagram字幕等等，可以让你的写作过程更加高效。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "AI写作",
+      "modelName": "Spin Rewriter",
+      "modelDesc": "Spin Rewriter使用了ENL语义旋转技术，能够将原始的文章内容进行重写和改编，生成多篇不同、独特的文章内容，并保持意义和可读性。其特点包括重写质量高、语义理解准确、自然度高等优点",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "AI写作",
+      "modelName": "ai-writer",
+      "modelDesc": "ai-writer是一个AI写作文章生成器工具，可以帮助你快速、准确和可靠地生成内容，只需输入一个标题，就能生成一篇独特的文章草稿。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "AI写作",
+      "modelName": "seo.ai",
+      "modelDesc": "seo.ai是一个基于人工智能的AI写作文章生成工具，可以帮助你快速创建搜索引擎优化的内容。为你提供关键词研究、AI SEO评分、内容建议、竞争对手基准、实时SEO指导等功能。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "AI写作",
+      "modelName": "sudowrite",
+      "modelDesc": "可以帮助你从构思到定稿的每一步，克服写作障碍，提高写作效率和乐趣。只需输入简单的主题，就可以自动生成更多文字的初稿，让你快速开始写作。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "AI写作",
+      "modelName": "QuillBot",
+      "modelDesc": "QuillBot是一个基于人工智能的在线英语论文写作校对润色工具，可以帮助你用不同的方式改写任何文本，提高你的写作流畅性，词汇量，语气和风格。让写作变得轻松无痛，让你专注于学习和表达知识，而不是写作的机械方面。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "AI写作",
+      "modelName": "Wordtune",
+      "modelDesc": "Wordtune是一款基于深度人工智能技术的AI写作辅助软件，可以帮助你用更清晰、更有说服力和更真实的语言来重写你的句子，让你的写作水平提升到一个新的层次",
+      "modelPrice": "",
+      "modelUrl": ""
+    }],
+  "图生图": [
+    {
+      "modelType": "图生图",
+      "modelName": "Stable Diffusion Reimagine",
+      "modelDesc": "可以根据单张图片无限制的生成不同风格的图片",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "图生图",
+      "modelName": "AI Art Generator",
+      "modelDesc": "用户可以通过上传自己的照片或选择其他图片进行操作，然后应用不同的艺术风格转换算法，如印象派、现实主义、糖果色等等，生成与原始图片不同的艺术品。这些生成的艺术品可以在cutout.pro上进行编辑，并可以保存或分享给他人。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "图生图",
+      "modelName": "Artbreeder",
+      "modelDesc": "用户可以自定义和利用网站提供的图像元素生成作品的AI算法",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "图生图",
+      "modelName": "Vana Portrait",
+      "modelDesc": "通过涂鸦的方式，告诉模型哪些区域需要改变或保持",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "图生图",
+      "modelName": "Scribble Diffusion",
+      "modelDesc": "根据草图生成精美图像的AI工具",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "图生图",
+      "modelName": "NVIDIA Canvas",
+      "modelDesc": "可以通过AI人工智能将简单的绘画笔触变成逼真的风景图。快速创建背景或加速探索概念，这使艺术家能够快速构思，避免项目开始时面对空白画布时感觉无从下笔，让你可以将更多时间用在可视化创意上。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },{
+      "modelType": "图生图",
+      "modelName": "Photosonic AI",
+      "modelDesc": "用户可以通过文件上传、URL链接或直接输入的方式将自己的图像数据输入至AI产品中。，生成高质量的图片艺术设计、影视特效、广告营销",
+      "modelPrice": "",
+      "modelUrl": ""
+    }
+  ],
+  "设计工具": [
+    {
+      "modelType": "设计工具",
+      "modelName": "powerpresent.ai",
+      "modelDesc": "输入主题或文本，AI生成演示文稿",
+      "modelPrice": "$12/月",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "设计工具",
+      "modelName": "adcreative.ai",
+      "modelDesc": "输入目标受众和广告类型，AI生成创意文案",
+      "modelPrice": "$100/月",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "设计工具",
+      "modelName": "dreamhouseai.ai",
+      "modelDesc": "上传房间照片，AI生成多种设计方案",
+      "modelPrice": "$49/月",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "设计工具",
+      "modelName": "iconifyai.ai",
+      "modelDesc": "输入图标样式、颜色、形状等信息，AI生成高质量图标",
+      "modelPrice": "免费（部分功能需付费）",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "设计工具",
+      "modelName": "resumaker.com",
+      "modelDesc": "上传简历，AI生成完整简历",
+      "modelPrice": "$29/月",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "设计工具",
+      "modelName": "makelogo.ai",
+      "modelDesc": "输入品牌名称和关键词，AI生成logo设计",
+      "modelPrice": "免费（部分功能需付费）",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "设计工具",
+      "modelName": "getimg.AI",
+      "modelDesc": "全能的AI视觉设计平台，包含众多基于人工智能的照片和视频编辑工具。",
+      "modelPrice": "按功能收费",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "设计工具",
+      "modelName": "vanceai",
+      "modelDesc": "人工智能照片增强和编辑工具网站",
+      "modelPrice": "免费（部分功能需付费）",
+      "modelUrl": ""
+    }
+  ],
+  "文、图片、视频生视频": [
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "Artflow.ai",
+      "modelDesc": "基于人工智能技术，能够将手绘图像自动转化为数字形式。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "D-ID AI Studio",
+      "modelDesc": "基于人工智能技术，保护用户隐私，防止面部滥用。能够制作逼真的动画，如说话、唱歌、笑等。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "Hourone.ai",
+      "modelDesc": "使用AI技术创建虚拟数字人，将文本转换为培训、教育、娱乐等目的的视频。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "NUWA-XL",
+      "modelDesc": "能够根据自然语言指令生成文本、图像和视频。NUWA-XL只需要输入16句简单的描述就可以生成超长的动画视频。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "Opus.ai",
+      "modelDesc": "基于AI技术，将文本自动转换成视频，让你的故事变成动画。使用Opus的人工智能技术来生成场景、角色、对话和视觉效果。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "Phenaki",
+      "modelDesc": "基于AI技术，可以从照片中创建逼真的3D模型，支持多种导出格式。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "Supercreator.ai",
+      "modelDesc": "利用AI辅助快速、高效地制作各种类型的视频，如教育、营销、娱乐等。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "Topaz Video AI",
+      "modelDesc": "基于AI技术，能够对任何分辨率的视频进行画质增强放大，甚至可以将标清视频画质提升到8K。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "Waymark",
+      "modelDesc": "基于AI技术，能够快速制作高效的广告视频，支持多种平台和格式。",
+      "modelPrice": "",
+      "modelUrl": ""
+    },
+    {
+      "modelType": "文、图片、视频生视频",
+      "modelName": "奇妙元",
+      "modelDesc": "多模态生成技术，支持三种不同形式的数字人生成。形象克隆功能，能够1：1复刻用户形象神态。",
+      "modelPrice": "",
+      "modelUrl": ""
+    }],
+  "换脸":[{
+    "modelType": "换脸",
+    "modelName": "Reface.ai",
+    "modelDesc": "完全免费的基于AI的在线换脸工具，可以自动将照片中的人脸与选择的其他人脸进行智能替换。",
+    "modelPrice": "免费，但有部分高级功能需要付费使用。",
+    "modelUrl": ""
+  },
+{
+  "modelType": "换脸",
+  "modelName": "FaceSwapper.ai",
+  "modelDesc": "Musico是一个基于AI的音乐生成作曲工具，可以根据手势、运动、代码或其他声音来作出反应。结合了传统和现代的机器学习算法，可以在多种风格中生成无限的无版权音乐。",
+  "modelPrice": "免费",
+  "modelUrl": ""
+}
+],
+"音乐制作":[{
+"modelType": "音乐制作",
+"modelName": "Musico",
+"modelDesc": "Musico是一个基于AI的音乐生成作曲工具，可以根据手势、运动、代码或其他声音来作出反应。结合了传统和现代的机器学习算法，可以在多种风格中生成无限的无版权音乐。",
+"modelPrice": "免费",
+"modelUrl": ""
+},
+{
+"modelType": "音乐制作",
+"modelName": "MuseNet",
+"modelDesc": "MuseNet是一个由OpenAI开发的AI音乐生成深度神经网络，可以生成四分钟的音乐作品，支持使用十种不同的乐器，可以结合从乡村到莫扎特到披头士的不同音乐风格。",
+"modelPrice": "收费",
+"modelUrl": ""
+},
+{
+"modelType": "音乐制作",
+"modelName": "Melobytes",
+"modelDesc": "MuseNet是一个由OpenAI开发的AI音乐生成深度神经网络，可以生成四分钟的音乐作品，支持使用十种不同的乐器，可以结合从乡村到莫扎特到披头士的不同音乐风格。melobytes是一个AI音乐生成作曲平台，提供了许多基于人工智能的创意音乐工具，可以通过上传图片来生成音乐作曲，或者可以输入一些歌词，然后根据歌词生成一首独特的旋律。",
+"modelPrice": "免费",
+"modelUrl": ""
+},
+{
+"modelType": "音乐制作",
+"modelName": "Ecrett Music",
+"modelDesc": "Ecrett Music是一个AI音乐创作软件，可以帮助用户创作符合其音乐风格的音乐。它使用的技术包括深度学习、计算机视觉和信号处理，可以在几秒钟内生成音乐作品。",
+"modelPrice": "收费",
+"modelUrl": ""
+}
+]
+}

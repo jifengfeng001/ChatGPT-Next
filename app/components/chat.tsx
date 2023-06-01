@@ -1,5 +1,5 @@
 import { useDebouncedCallback } from "use-debounce";
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 
 import SendWhiteIcon from "../icons/send-white.svg";
 import BrainIcon from "../icons/brain.svg";
@@ -22,7 +22,10 @@ import DarkIcon from "../icons/dark.svg";
 import AutoIcon from "../icons/auto.svg";
 import BottomIcon from "../icons/bottom.svg";
 import StopIcon from "../icons/pause.svg";
-
+import GradeIcon from "../icons/grade.svg";
+import FolderIcon from "../icons/folder.svg";
+import CommentIcon from "../icons/comment.svg";
+import GlobeIcon from "../icons/globe.svg";
 import {
   ChatMessage,
   SubmitKey,
@@ -61,7 +64,8 @@ import { MaskAvatar, MaskConfig } from "./mask";
 import { useMaskStore } from "../store/mask";
 import { useCommand } from "../command";
 import { prettyObject } from "../utils/format";
-
+import modelsDataJson from "../../public/models.json";
+import { Tabs } from "antd";
 const Markdown = dynamic(async () => (await import("./markdown")).Markdown, {
   loading: () => <LoadingIcon />,
 });
@@ -102,6 +106,152 @@ function exportMessages(messages: ChatMessage[], topic: string) {
       />,
     ],
   });
+}
+import BookmarkApp from "./BookmarkApp";
+function ShowBookmarkApp() {
+  showModal({
+    title: Locale.BookMark.Title,
+    children: <BookmarkApp />,
+    actions: [
+      <IconButton
+        key="copy"
+        icon={<CopyIcon />}
+        bordered
+        text={Locale.BookMark.Choose}
+      />,
+    ],
+  });
+}
+
+import FileUploadPage from "./FileUploadPage";
+function ShowFileUploadApp() {
+  showModal({
+    title: Locale.File.Title,
+    children: <FileUploadPage />,
+    actions: [
+      <IconButton
+        key="delete"
+        icon={<CopyIcon />}
+        bordered
+        text={Locale.BookMark.Delete}
+      />,
+      <IconButton
+        key="download"
+        icon={<CopyIcon />}
+        bordered
+        text={Locale.BookMark.Download}
+      />,
+      <IconButton
+        key="copy"
+        icon={<CopyIcon />}
+        bordered
+        text={Locale.BookMark.Choose}
+      />,
+    ],
+  });
+}
+
+import MarkdownApp, { MarkdownFile } from "./MarkdownEditApp";
+
+function ShowMarkDownEditorApp(messages: ChatMessage[], topic: string) {
+  const mdText =
+    `# ${topic}\n\n` +
+    messages
+      .map((m) => {
+        return m.role === "user"
+          ? `## ${Locale.Export.MessageFromYou}:\n${m.content}`
+          : `## ${Locale.Export.MessageFromChatGPT}:\n${m.content.trim()}`;
+      })
+      .join("\n\n");
+  const filename = `${topic}.md`;
+
+  const initialFiles: MarkdownFile[] = [
+    {
+      id: "",
+      name: filename,
+      content: mdText,
+    },
+    // other initial files
+  ];
+
+  showModal({
+    title: Locale.MarkDownEdit.Title,
+    children: (
+      <div className="markdown-body">
+        <MarkdownApp initialFiles={initialFiles} />
+      </div>
+    ),
+    actions: [
+      <IconButton
+        key="delete"
+        icon={<CopyIcon />}
+        bordered
+        text={Locale.BookMark.Delete}
+      />,
+      <IconButton
+        key="download"
+        icon={<CopyIcon />}
+        bordered
+        text={Locale.BookMark.Download}
+      />,
+      <IconButton
+        key="copy"
+        icon={<CopyIcon />}
+        bordered
+        text={Locale.BookMark.Choose}
+      />,
+    ],
+  });
+}
+
+interface Model {
+  modelType: string;
+  modelName: string;
+  modelDesc: string;
+  modelPrice: string;
+  modelUrl: string;
+}
+interface ModelsData {
+  [key: string]: Model[];
+}
+
+export function ModelList(props: {
+  modelsData: ModelsData;
+  onModelSelect: (model: Model) => void;
+}) {
+  const noModels = Object.keys(props.modelsData).length === 0;
+  const [activeTab, setActiveTab] = useState<string>("通用模型");
+  const handleTabClick = (type: string) => {
+    setActiveTab(type);
+  };
+
+  if (noModels) return null;
+
+  return (
+    <div className={styles["model-list"]}>
+      <Tabs>
+        {Object.keys(props.modelsData).map((type) => (
+          <Tabs.TabPane tab={type} key={type}>
+            <div className={styles["models"]}>
+              {props.modelsData[type]?.map((model) => (
+                <div
+                  className={styles["model-hint"]}
+                  key={`${model.modelType}-${model.modelName}`}
+                  onClick={() => props.onModelSelect(model)}
+                  //onMouseEnter={() => setSelectIndex(i)}
+                >
+                  <div className={styles["hint-title"]}>{model.modelName}</div>
+                  <div className={styles["hint-content"]}>
+                    {model.modelDesc}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Tabs.TabPane>
+        ))}
+      </Tabs>
+    </div>
+  );
 }
 
 export function SessionConfigModel(props: { onClose: () => void }) {
@@ -345,12 +495,16 @@ export function ChatActions(props: {
   showPromptModal: () => void;
   scrollToBottom: () => void;
   showPromptHints: () => void;
+  showModelList: () => void;
   hitBottom: boolean;
 }) {
   const config = useAppConfig();
   const navigate = useNavigate();
   const chatStore = useChatStore();
-
+  const [session, sessionIndex] = useChatStore((state) => [
+    state.currentSession(),
+    state.currentSessionIndex,
+  ]);
   // switch themes
   const theme = config.theme;
   function nextTheme() {
@@ -367,6 +521,30 @@ export function ChatActions(props: {
 
   return (
     <div className={chatStyle["chat-input-actions"]}>
+      <div
+        className={`${chatStyle["chat-input-action"]} clickable`}
+        onClick={ShowBookmarkApp}
+      >
+        <GradeIcon />
+      </div>
+      <div
+        className={`${chatStyle["chat-input-action"]} clickable`}
+        onClick={ShowFileUploadApp}
+      >
+        <FolderIcon />
+      </div>
+      <div
+        className={`${chatStyle["chat-input-action"]} clickable`}
+        onClick={() => {
+          ShowMarkDownEditorApp(
+            session.messages.filter((msg) => !msg.isError),
+            session.topic,
+          );
+        }}
+      >
+        <CommentIcon />
+      </div>
+
       {couldStop && (
         <div
           className={`${chatStyle["chat-input-action"]} clickable`}
@@ -405,36 +583,43 @@ export function ChatActions(props: {
         ) : null}
       </div>
 
-      <div
-        className={`${chatStyle["chat-input-action"]} clickable`}
-        onClick={props.showPromptHints}
-      >
-        <PromptIcon />
-      </div>
+      {/*<div*/}
+      {/*  className={`${chatStyle["chat-input-action"]} clickable`}*/}
+      {/*  onClick={props.showPromptHints}*/}
+      {/*>*/}
+      {/*  <PromptIcon />*/}
+      {/*</div>*/}
+
+      {/*<div*/}
+      {/*  className={`${chatStyle["chat-input-action"]} clickable`}*/}
+      {/*  onClick={() => {*/}
+      {/*    navigate(Path.Masks);*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <MaskIcon />*/}
+      {/*</div>*/}
+
+      {/*<div*/}
+      {/*  className={`${chatStyle["chat-input-action"]} clickable`}*/}
+      {/*  onClick={() => {*/}
+      {/*    chatStore.updateCurrentSession((session) => {*/}
+      {/*      if (session.clearContextIndex === session.messages.length) {*/}
+      {/*        session.clearContextIndex = -1;*/}
+      {/*      } else {*/}
+      {/*        session.clearContextIndex = session.messages.length;*/}
+      {/*        session.memoryPrompt = ""; // will clear memory*/}
+      {/*      }*/}
+      {/*    });*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <BreakIcon />*/}
+      {/*</div>*/}
 
       <div
-        className={`${chatStyle["chat-input-action"]} clickable`}
-        onClick={() => {
-          navigate(Path.Masks);
-        }}
+        className={`${chatStyle["chat-input-action-right"]} clickable`}
+        onClick={props.showModelList}
       >
-        <MaskIcon />
-      </div>
-
-      <div
-        className={`${chatStyle["chat-input-action"]} clickable`}
-        onClick={() => {
-          chatStore.updateCurrentSession((session) => {
-            if (session.clearContextIndex === session.messages.length) {
-              session.clearContextIndex = -1;
-            } else {
-              session.clearContextIndex = session.messages.length;
-              session.memoryPrompt = ""; // will clear memory
-            }
-          });
-        }}
-      >
-        <BreakIcon />
+        <GlobeIcon />
       </div>
     </div>
   );
@@ -468,6 +653,7 @@ export function Chat() {
   // prompt hints
   const promptStore = usePromptStore();
   const [promptHints, setPromptHints] = useState<Prompt[]>([]);
+  const [modelsData, setModelsData] = useState<ModelsData>({});
   const onSearch = useDebouncedCallback(
     (text: string) => {
       setPromptHints(promptStore.search(text));
@@ -481,7 +667,11 @@ export function Chat() {
     inputRef.current?.focus();
     setTimeout(() => setUserInput(prompt.content), 60);
   };
-
+  const onModelSelect = (model: Model) => {
+    setModelsData({});
+    inputRef.current?.focus();
+    setTimeout(() => setUserInput(model.modelDesc), 60);
+  };
   // auto grow input
   const [inputRows, setInputRows] = useState(2);
   const measure = useDebouncedCallback(
@@ -884,11 +1074,10 @@ export function Chat() {
 
       <div className={styles["chat-input-panel"]}>
         <PromptHints prompts={promptHints} onPromptSelect={onPromptSelect} />
-
+        <ModelList modelsData={modelsData} onModelSelect={onModelSelect} />
         <ChatActions
           showPromptModal={() => setShowPromptModal(true)}
           scrollToBottom={scrollToBottom}
-          hitBottom={hitBottom}
           showPromptHints={() => {
             // Click again to close
             if (promptHints.length > 0) {
@@ -900,6 +1089,15 @@ export function Chat() {
             setUserInput("/");
             onSearch("");
           }}
+          showModelList={() => {
+            // Click again to close
+            if (Object.keys(modelsData).length !== 0) {
+              setModelsData({});
+              return;
+            }
+            setModelsData(modelsDataJson);
+          }}
+          hitBottom={hitBottom}
         />
         <div className={styles["chat-input-panel-inner"]}>
           <textarea

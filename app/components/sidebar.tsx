@@ -13,7 +13,13 @@ import PluginIcon from "../icons/plugin.svg";
 
 import Locale from "../locales";
 
-import { useAppConfig, useChatStore } from "../store";
+import {
+  ALL_MODELS,
+  ModalConfigValidator,
+  ModelConfig,
+  useAppConfig,
+  useChatStore,
+} from "../store";
 
 import {
   MAX_SIDEBAR_WIDTH,
@@ -26,7 +32,10 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useMobileScreen } from "../utils";
 import dynamic from "next/dynamic";
-import { showToast } from "./ui-lib";
+import { List, ListItem, Select, showToast } from "./ui-lib";
+import { ModelConfigList } from "@/app/components/model-config";
+import { Mask } from "@/app/store/mask";
+import { Updater } from "@/app/typing";
 
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
@@ -104,6 +113,7 @@ function useDragSideBar() {
 
 export function SideBar(props: { className?: string }) {
   const chatStore = useChatStore();
+  const modelConfig = { ...useAppConfig.getState().modelConfig };
 
   // drag side bar
   const { onDragMouseDown, shouldNarrow } = useDragSideBar();
@@ -119,10 +129,8 @@ export function SideBar(props: { className?: string }) {
       }`}
     >
       <div className={styles["sidebar-header"]}>
-        <div className={styles["sidebar-title"]}>ChatGPT Next</div>
-        <div className={styles["sidebar-sub-title"]}>
-          Build your own AI assistant.
-        </div>
+        <div className={styles["sidebar-title"]}>SoulMate</div>
+        <div className={styles["sidebar-sub-title"]}>属于你的AI小助手</div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
         </div>
@@ -155,7 +163,19 @@ export function SideBar(props: { className?: string }) {
       >
         <ChatList narrow={shouldNarrow} />
       </div>
-
+      {/*<div>*/}
+      {/*<ListItem title={Locale.Settings.Model}         className={styles["sidebarAction"]}>*/}
+      {/*  <Select*/}
+      {/*      value={modelConfig.model}*/}
+      {/*  >*/}
+      {/*    {ALL_MODELS.map((v) => (*/}
+      {/*        <option value={v.name} key={v.name} disabled={!v.available}>*/}
+      {/*          {v.name}*/}
+      {/*        </option>*/}
+      {/*    ))}*/}
+      {/*  </Select>*/}
+      {/*</ListItem>*/}
+      {/*</div>*/}
       <div className={styles["sidebar-tail"]}>
         <div className={styles["sidebar-actions"]}>
           <div className={styles["sidebar-action"] + " " + styles.mobile}>
