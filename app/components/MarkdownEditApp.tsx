@@ -153,7 +153,7 @@ const MarkdownApp = ({ initialFiles }: MarkdownAppProps) => {
   const [selectedFile, setSelectedFile] = useState<MarkdownFile | null>(
     initialFiles[0],
   );
-  const [activeTab, setActiveTab] = useState("1");
+  const [activeTab, setActiveTab] = useState<string>("1");
   const handleTabChange = (key: string) => {
     setActiveTab(key);
   };
@@ -200,7 +200,7 @@ const MarkdownApp = ({ initialFiles }: MarkdownAppProps) => {
         <MarkdownFileList
           files={files}
           setSelectedFile={setSelectedFile}
-          setActionTab={handleTabChange}
+          setActionTab={setActiveTab}
         />
       </Tabs.TabPane>
     </Tabs>
