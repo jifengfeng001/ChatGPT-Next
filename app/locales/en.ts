@@ -38,6 +38,24 @@ const en: RequiredLocaleType = {
       SaveAs: "Save as Mask",
     },
   },
+  BookMark: {
+    Title: "收藏夹",
+    Choose: "提交背景资料",
+    Download: "下载文件",
+    Delete: "删除",
+  },
+  File: {
+    Title: "文件处理",
+    Choose: "提交背景资料",
+    Download: "下载文件",
+    Delete: "删除",
+  },
+  MarkDownEdit: {
+    Title: "会话记录",
+    Choose: "提交背景资料",
+    Download: "下载文件",
+    Delete: "删除",
+  },
   Export: {
     Title: "Export Messages",
     Copy: "Copy All",
@@ -90,7 +108,7 @@ const en: RequiredLocaleType = {
       ConfirmClearAll: "Are you sure you want to reset all data?",
     },
     Lang: {
-      Name: "Language", // ATTENTION: if you wanna add a new translation, please do not translate this value, leave it as `Language`
+      Name: "Language",
       All: "All Languages",
     },
     Avatar: "Avatar",
