@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
-import { Tabs } from "antd";
-
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 export interface MarkdownFile {
   id: string;
   name: string;
@@ -99,7 +99,7 @@ const MarkdownFileList = ({
 }: {
   files: MarkdownFile[];
   setSelectedFile: React.Dispatch<React.SetStateAction<MarkdownFile | null>>;
-  setActionTab: React.Dispatch<React.SetStateAction<string>>;
+  setActionTab: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const handleFileSelect = (file: MarkdownFile) => {
     setSelectedFile(file);
@@ -120,7 +120,7 @@ const MarkdownFileList = ({
             <button
               onClick={() => {
                 handleFileSelect(file);
-                setActionTab("1");
+                setActionTab(1);
               }}
               style={{ float: "right", background: "#0080ff" }}
             >
@@ -153,8 +153,8 @@ const MarkdownApp = ({ initialFiles }: MarkdownAppProps) => {
   const [selectedFile, setSelectedFile] = useState<MarkdownFile | null>(
     initialFiles[0],
   );
-  const [activeTab, setActiveTab] = useState<string>("1");
-  const handleTabChange = (key: string) => {
+  const [activeTab, setActiveTab] = useState<number>(1);
+  const handleTabChange = (key: number) => {
     setActiveTab(key);
   };
   useEffect(() => {
@@ -184,25 +184,31 @@ const MarkdownApp = ({ initialFiles }: MarkdownAppProps) => {
   }, []);
 
   return (
-    <Tabs activeKey={activeTab} onChange={handleTabChange}>
-      <Tabs.TabPane tab="编辑" key="1">
+    <Tabs selectedIndex={activeTab} onSelect={handleTabChange}>
+      <TabList>
+        <Tab>编辑</Tab>
+        <Tab>预览</Tab>
+        <Tab>文件列表</Tab>
+      </TabList>
+
+      <TabPanel>
         <MarkdownEditor
           files={files}
           updateFiles={setFiles}
           selectedFile={selectedFile}
           setSelectedFile={setSelectedFile}
         />
-      </Tabs.TabPane>
-      <Tabs.TabPane tab="预览" key="2">
+      </TabPanel>
+      <TabPanel>
         <MarkdownPreviewer selectedFile={selectedFile}></MarkdownPreviewer>
-      </Tabs.TabPane>
-      <Tabs.TabPane tab="文件列表" key="3">
+      </TabPanel>
+      <TabPanel>
         <MarkdownFileList
           files={files}
           setSelectedFile={setSelectedFile}
           setActionTab={setActiveTab}
         />
-      </Tabs.TabPane>
+      </TabPanel>
     </Tabs>
   );
 };

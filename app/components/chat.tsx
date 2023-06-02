@@ -65,7 +65,8 @@ import { useMaskStore } from "../store/mask";
 import { useCommand } from "../command";
 import { prettyObject } from "../utils/format";
 import modelsDataJson from "../../public/models.json";
-import { Tabs } from "antd";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 const Markdown = dynamic(async () => (await import("./markdown")).Markdown, {
   loading: () => <LoadingIcon />,
 });
@@ -229,16 +230,20 @@ export function ModelList(props: {
 
   return (
     <div className={styles["model-list"]}>
-      <Tabs>
-        {Object.keys(props.modelsData).map((type) => (
-          <Tabs.TabPane tab={type} key={type}>
+      <Tabs defaultIndex={0}>
+        <TabList>
+          {Object.keys(props.modelsData).map((type) => (
+            <Tab key={type}>{type}</Tab>
+          ))}
+        </TabList>
+        {Object.keys(props.modelsData).map((modelType) => (
+          <TabPanel key={modelType}>
             <div className={styles["models"]}>
-              {props.modelsData[type]?.map((model) => (
+              {props.modelsData[modelType]?.map((model) => (
                 <div
                   className={styles["model-hint"]}
                   key={`${model.modelType}-${model.modelName}`}
                   onClick={() => props.onModelSelect(model)}
-                  //onMouseEnter={() => setSelectIndex(i)}
                 >
                   <div className={styles["hint-title"]}>{model.modelName}</div>
                   <div className={styles["hint-content"]}>
@@ -247,7 +252,7 @@ export function ModelList(props: {
                 </div>
               ))}
             </div>
-          </Tabs.TabPane>
+          </TabPanel>
         ))}
       </Tabs>
     </div>
