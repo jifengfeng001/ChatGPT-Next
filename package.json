@@ -18,7 +18,7 @@
     "@hello-pangea/dnd": "^16.2.0",
     "@svgr/webpack": "^6.5.1",
     "@vercel/analytics": "^0.1.11",
-    "antd": "^5.5.1",
+    "antd": "5.1.0",
     "await": "^0.2.6",
     "axios": "^1.4.0",
     "emoji-picker-react": "^4.4.7",
